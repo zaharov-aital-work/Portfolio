@@ -1,0 +1,4 @@
+Deny from all
+<FilesMatch "\.log$">
+    Deny from all
+</FilesMatch>

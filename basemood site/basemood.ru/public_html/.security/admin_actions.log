@@ -1,0 +1,13 @@
+[2026-05-03 11:50:38] IP: 94.245.131.101 | Action: LOGOUT | Details: Выход из системы | UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
+[2026-05-03 12:34:25] IP: 94.245.131.101 | Action: UPDATE_ORDER | Details: ID 2 | UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
+[2026-05-03 12:34:47] IP: 94.245.131.101 | Action: UPDATE_ORDER | Details: ID 1 | UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
+[2026-05-06 00:34:17] IP: 94.245.131.101 | Action: SAVE_PRODUCT_META | Details: Порядок и отображение | UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
+[2026-05-06 00:43:20] IP: 94.245.131.101 | Action: EDIT_PRODUCT | Details: ID: 1, Название: Футболка черная BM Couple | UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
+[2026-05-06 00:44:12] IP: 94.245.131.101 | Action: EDIT_PRODUCT | Details: ID: 1, Название: Футболка черная BM Couple | UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
+[2026-05-06 00:44:53] IP: 94.245.131.101 | Action: EDIT_PRODUCT | Details: ID: 2, Название: Футболка белая BM Couple | UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
+[2026-05-06 00:45:38] IP: 94.245.131.101 | Action: EDIT_PRODUCT | Details: ID: 3, Название: Футболка черная BM Smile | UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
+[2026-05-06 00:46:09] IP: 94.245.131.101 | Action: EDIT_PRODUCT | Details: ID: 4, Название: Футболка белая BM Smile | UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
+[2026-05-06 00:47:03] IP: 94.245.131.101 | Action: EDIT_PRODUCT | Details: ID: 13, Название: Худи SKLTN | UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
+[2026-05-06 00:47:56] IP: 94.245.131.101 | Action: EDIT_PRODUCT | Details: ID: 13, Название: Худи SKLTN | UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
+[2026-05-06 00:49:29] IP: 94.245.131.101 | Action: EDIT_PRODUCT | Details: ID: 13, Название: Худи SKLTN | UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
+[2026-05-06 05:58:58] IP: 94.231.29.113 | Action: SAVE_PRODUCT_META | Details: Порядок и отображение | UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Sa

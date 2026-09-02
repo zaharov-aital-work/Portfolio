@@ -1,0 +1,115 @@
+# ==========================================
+# BASEMOOD GLOBAL SECURITY
+# Корневой .htaccess для общей защиты
+# ==========================================
+
+# Отключение списка файлов
+Options -Indexes
+Options -FollowSymLinks
+Options +SymLinksIfOwnerMatch
+
+# Защита от доступа к конфигам и логам
+<FilesMatch "\.(env|htpasswd|htaccess|log|sql|config|php\.bak|backup|yml|json)$">
+    Require all denied
+</FilesMatch>
+
+# Защита от доступа к скрытым файлам (но НЕ к папкам admin!)
+<FilesMatch "^\.(env|git|svn|htaccess|htpasswd)">
+    Require all denied
+</FilesMatch>
+
+# Запрет доступа к определенным директориям (кроме admin)
+<DirectoryMatch "^/(\.git|\.svn|\.env)">
+    Require all denied
+</DirectoryMatch>
+
+# Запрет исполнения PHP в логов папке
+<Directory "/home/basemood.local/.security">
+    <FilesMatch "\.php$">
+        Deny from all
+    </FilesMatch>
+</Directory>
+
+# Защита config.php от прямого доступа
+<Files "config.php">
+    Deny from all
+</Files>
+
+# Заголовки безопасности
+<IfModule mod_headers.c>
+    # Убрать информацию о сервере
+    Header always set Server "Apache"
+    Header unset X-Powered-By
+    Header always unset X-Powered-By
+    
+    # Стандартные заголовки безопасности
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Защита от SQL Injection и других атак
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Блокировка опасных параметров в URL
+    RewriteCond %{QUERY_STRING} union.*select|select.*from|insert.*into|delete.*from|drop.*table [NC]
+    RewriteRule ^ - [F]
+    
+    RewriteCond %{QUERY_STRING} (<|>|%3c|%3e) [NC]
+    RewriteRule ^ - [F]
+    
+    # Блокировка попыток доступа к системным файлам
+    RewriteRule ^\.git - [F]
+    RewriteRule ^\.env - [F]
+    RewriteRule ^config\.php - [F]
+    
+    # Запрет на доступ к админке по прямому URL
+    RewriteRule ^admin/ - [F]
+    
+    # HTTPS редирект (раскомментировать если используется SSL)
+    # RewriteCond %{HTTPS} off
+    # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Ограничение размера загружаемых файлов
+<IfModule mod_php7c.c>
+    php_value upload_max_filesize 5M
+    php_value post_max_size 5M
+</IfModule>
+
+# Защита от DDoS атак
+<IfModule mod_ratelimit.c>
+    SetEnvIf Remote_Addr "^127\.0\.0\.1$" nolimit
+    SetEnvIf Remote_Addr "localhost" nolimit
+    <Limit GET POST>
+        Order Allow,Deny
+        Allow from env=nolimit
+        Allow from all
+    </Limit>
+</IfModule>
+
+# Запрет на кэширование конфиденциальных данных
+<FilesMatch "\.(html|php)$">
+    Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set Expires "Wed, 11 Jan 1984 05:00:00 GMT"
+</FilesMatch>
+
+# Кэширование статичных файлов (картинки, CSS, JS)
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg "access plus 1 years"
+    ExpiresByType image/gif "access plus 1 years"
+    ExpiresByType image/png "access plus 1 years"
+    ExpiresByType image/svg+xml "access plus 1 years"
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+</IfModule>
+
+# Сжатие контента
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json text/x-component
+    AddEncoding gzip .gz
+</IfModule>

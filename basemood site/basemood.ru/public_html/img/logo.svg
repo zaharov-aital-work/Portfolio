@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        font-size: 280px;
+        font-family: Montserrat-ExtraBold, Montserrat;
+        font-weight: 800;
+      }
+    </style>
+  </defs>
+  <g id="Слой_1" data-name="Слой 1">
+    <rect width="1000" height="1000"/>
+    <rect class="cls-1" x="98.95" y="99.27" width="800" height="800"/>
+    <rect x="98.95" y="199.27" width="700.98" height="700"/>
+  </g>
+  <g id="Слой_2" data-name="Слой 2">
+    <text class="cls-2" transform="translate(750.73 922.52) rotate(-90)">BM</text>
+    <text class="cls-2" transform="translate(75.72 446.28)">BM</text>
+  </g>
+</svg>
